@@ -93,7 +93,7 @@ public class DynamicBeat extends JFrame {
 	
 	public DynamicBeat() {
 		
-		// 트랙리스트에 각각 트랙객체 추가
+		// 트랙리스트에 각각 트랙객체 추가 : 프로그램이 실행된다음 곡이 추가되기 전에 버튼이벤트가 발생하면 프로그램이 오류가 발생하기때문에 제일 먼저 실행
 		trackList.add(new Track("MightyLove_selectImage.png", "MightyLove_gameImage.png", "Mighty Love_selected.mp3", "Joakim Karud - Mighty Love.mp3", "Joakim Karud - Mighty Love"));	 	// index 0
 		trackList.add(new Track("energy_selectImage.png", "energy_gameImage.png", "Energy_selected.mp3", "Bensound - Energy.mp3", "Bensound - Energy"));													// index 1
 		trackList.add(new Track("wildFlower_selectImage.png",  "wildFlower_gameImage.png", "Wild Flower_selected.mp3", "Joakim Karud - Wild Flower.mp3", "Joakim Karud - Wild Flower")); 		// index 2
@@ -110,7 +110,7 @@ public class DynamicBeat extends JFrame {
 
 		addKeyListener(new KeyListener());									// 키보드이벤트를 위해 키리스너 객체 생성
 
-		introMusic.start();															// 인트로 뮤직을 시작하라 (쓰레드, 무한반복으로)
+		introMusic.start();															// 인트로 뮤직을 시작 (쓰레드, 무한반복으로)
 		
 		
 		/* 각 버튼 Setting */
@@ -408,7 +408,7 @@ public class DynamicBeat extends JFrame {
 		paintComponents(g); // 이미지 그리는 방법 - 항상존재, 고정된 이미지를 그릴때 사용
 		
 		try {
-			Thread.sleep(5);
+			Thread.sleep(10);		// 시간차를 두면서 실행되게끔, 노트가 안정적으로 떨어지게끔 하기위함
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -469,7 +469,7 @@ public class DynamicBeat extends JFrame {
 		game = new Game(trackList.get(nowSelected).getTitleName(), difficulty, trackList.get(nowSelected).getGameMusic());
 		game.start();
 		
-		setFocusable(true); // 화면이 바뀜에 따라 포커스를 맞추어야함
+		setFocusable(true); // 키보드 이벤트가 오류없이 정확히 캐치할수 있도록, 화면이 바뀜에 따라 포커스를 맞추어야함
 	}
 	/* 곡 선택 후 게임을 실행하는 메서드 끝 */
 	

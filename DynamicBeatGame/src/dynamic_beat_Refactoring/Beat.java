@@ -1,5 +1,7 @@
 package dynamic_beat_Refactoring;
 
+ 
+// 박자 타이밍과  노트의 종류를 담을수 있는 Beat 클래스
 public class Beat {
 	private int time;				// 시간
 	private String noteName;	// 노트 종류
