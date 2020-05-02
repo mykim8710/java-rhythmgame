@@ -73,11 +73,11 @@ public class Game extends Thread {
 
 		for (int i = 0; i < noteList.size(); i++) {
 			Note note = noteList.get(i);
-			
-			if(note.getY() > 620) {
+
+			if (note.getY() > 620) {
 				judgeImage = new ImageIcon(Main.class.getResource("../images/judgeImage_miss.png/")).getImage();
 			}
-			
+
 			if (!note.isProceeded()) {
 				noteList.remove(i);
 				i--;
@@ -106,11 +106,12 @@ public class Game extends Thread {
 
 		g.setColor(Color.LIGHT_GRAY);
 		g.setFont(new Font("Elephant", Font.BOLD, 30));
+		
 		g.drawString("000000", 565, 702);
 
 		g.drawImage(blueFlareImage, 320, 430, null);
 		g.drawImage(judgeImage, 460, 420, null);
-		
+
 		g.drawImage(keyPadSImage, 228, 580, null);
 		g.drawImage(keyPadDImage, 332, 580, null);
 		g.drawImage(keyPadFImage, 436, 580, null);
@@ -119,7 +120,6 @@ public class Game extends Thread {
 		g.drawImage(keyPadJImage, 744, 580, null);
 		g.drawImage(keyPadKImage, 848, 580, null);
 		g.drawImage(keyPadLImage, 952, 580, null);
-		
 
 	}
 
@@ -365,23 +365,23 @@ public class Game extends Thread {
 			}
 		}
 	}
-	
+
 	public void judgeEvent(String judge) {
-		if(!judge.equals("None")) {
-			blueFlareImage = new ImageIcon(Main.class.getResource("../images/blueFlare.png")).getImage();	
-		} 
-		
-		if(judge.equals("Miss")) {
+		if (!judge.equals("None")) {
+			blueFlareImage = new ImageIcon(Main.class.getResource("../images/blueFlare.png")).getImage();
+		}
+
+		if (judge.equals("Miss")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeImage_miss.png")).getImage();
-		}else if(judge.equals("Late")) {
+		} else if (judge.equals("Late")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeImage_late.png")).getImage();
-		}else if(judge.equals("Good")) {
+		} else if (judge.equals("Good")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeImage_good.png")).getImage();
-		}else if(judge.equals("Great")) {
+		} else if (judge.equals("Great")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeImage_great.png")).getImage();
-		}else if(judge.equals("Perfect")) {
+		} else if (judge.equals("Perfect")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeImage_perfect.png")).getImage();
-		}else if(judge.equals("Early")) {
+		} else if (judge.equals("Early")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeImage_early.png")).getImage();
 		}
 	}
